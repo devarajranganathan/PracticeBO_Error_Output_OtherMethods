@@ -12,11 +12,6 @@ pipeline {
         
       }
     }
-    stage('ErrorSignal') {
-      steps {
-        error '"Throwing Error Signal"'
-      }
-    }
     stage('WorkspaceAllocation') {
       steps {
         node(label: 'Priyanka') {
