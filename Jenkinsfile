@@ -35,5 +35,10 @@ pipeline {
         input 'What to do now?'
       }
     }
+    stage('Rename') {
+      steps {
+        build 'Rename'
+      }
+    }
   }
 }
