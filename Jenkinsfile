@@ -18,6 +18,8 @@ pipeline {
       steps {
         ws(dir: 'C:\\Devaraj\\Test\\A\\') {
           git(url: 'https://github.com/devarajranganathan/PracticeMaven_JUnit.git', branch: 'master', changelog: true, credentialsId: 'devarajranganathan')
+          build 'Rename'
+          bat(script: 'mvn test', returnStatus: true, returnStdout: true)
         }
         
       }
@@ -33,11 +35,6 @@ pipeline {
     stage('WaitforInput') {
       steps {
         input 'What to do now?'
-      }
-    }
-    stage('Rename') {
-      steps {
-        build 'Rename'
       }
     }
   }
