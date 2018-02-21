@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('WorkspaceAllocation') {
       steps {
-        ws(dir: 'C:\\Devaraj\\Test\\A')
+        ws(dir: 'C:\\Devaraj\\Test\\A') {
+          bat(script: 'Wscript "b.vbs"', returnStatus: true, returnStdout: true)
+        }
+        
       }
     }
     stage('RunVBS_A') {
