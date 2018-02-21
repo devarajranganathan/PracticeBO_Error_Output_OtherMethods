@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Git_in defined Workspace') {
       steps {
-        ws(dir: 'C:\\Devaraj\\Test\\A') {
+        ws(dir: '"C:\\Devaraj\\Test\\A\\"') {
           git(url: 'https://github.com/devarajranganathan/PracticeMaven_JUnit.git', branch: 'master', changelog: true, credentialsId: 'devarajranganathan')
         }
         
@@ -32,7 +32,7 @@ pipeline {
     }
     stage('WaitforInput') {
       steps {
-        input 'Finished the pipeline? (Click Proceed to continue)'
+        input 'What to do now?'
       }
     }
   }
